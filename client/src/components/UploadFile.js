@@ -6,7 +6,6 @@ import XHRUpload from '@uppy/xhr-upload'
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
 
-
 const uppy = new Uppy({
         id:'UploadFile',
     })    
@@ -17,14 +16,23 @@ const uppy = new Uppy({
             formData: true,
         })
 
-uppy.on('complete', (result) => {
-    console.log('Upload complete! File uploaded: ', result.successful)
-})
+const UploadFile = ({setUploadStatus, setModelPath}) => {
 
-const UploadFile = () => {
+    uppy.on('complete', (result) => {
+        console.log('Upload complete! File uploaded: ', result.successful);
+        setUploadStatus(true);
+    })
+    
+    uppy.on('upload-success', (file, response) => {
+        const httpBody = response.body;  
+        setModelPath('http://localhost:9000/' + httpBody.filename);
+    })
+    
+    
     return(
         <Dashboard uppy={uppy} plugins={[]} />
     )
 }
 
 export default UploadFile;
+

@@ -16,9 +16,12 @@ const uploadFile = multer({storage}).single('model');
 
 router.post('/', uploadFile, (req, res) => {
   console.log(req.file);
-  if (req.file) return res.json({msg: 'model uploaded'});
+  if (req.file) return res.json(req.file)
+  
 
   res.send('upload failed');
 })
+
+
 
 module.exports = router;
