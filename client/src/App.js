@@ -9,21 +9,48 @@ import OptionSelector from "./components/OptionSelector";
 import UploadFile from "./components/UploadFile";
 import ModelViewer from "./components/ModelViewer";
 import Container from "react-bootstrap/esm/Container";
-
+import InputSize from "./components/InputSize";
 
 const App = () => {
 
   const [uploadStatus, setUploadStatus] = useState(false);
-  const [modelPath, setModelPath] = useState('http://localhost:9000/cube.stl')
+  const [modelPath, setModelPath] = useState('http://localhost:9000/cube.stl');
+  
+  const [modelRenderStatus, setModelRenderStatus] = useState(false);
+
+  const [selectedColor, setSelectedColor] = useState('gray');
+  const [selectedMaterial, setSelectedMaterial] = useState(null);
+
+  const colors = [
+    { value: "red", label: "Red" },
+    { value: "green", label: "Green" },
+    { value: "blue", label: "Blue" },
+    { value: "orange", label: "Orange" },
+  ];
+
+  const materials = [
+    {value: "PLA", label: "PLA"},
+    {value: "ABS", label: "ABS"},
+    {value: "PETG", label: "PETG"},
+  ]
+
 
   return (
     <>
+    <Navigation />
     <Container>
-    <div style={{ width: "50vw", height: "50vh" }}>
-      {(!uploadStatus) ? <UploadFile setUploadStatus={setUploadStatus} setModelPath={setModelPath}/> : <ModelViewer scale = {1000} modelPath={modelPath} />}
+    <div className="row" style={{ width: "50vw", height: "71vh" }}>
+      {(!uploadStatus) ? <UploadFile setUploadStatus={setUploadStatus} setModelPath={setModelPath}/> : <ModelViewer modelPath={modelPath} color={selectedColor.value} setModelRenderStatus={setModelRenderStatus} />}
+      
+      {(uploadStatus) ? <Button onClick={() => setUploadStatus(false)}>← Back</Button> : <Button onClick={() => setUploadStatus(true)}>Forward →</Button>}
+      
     </div>
     </Container>
-    <Button style={{position:'absolute', top:'500px'}} onClick={() => setUploadStatus(false)}>← Back</Button>
+    <Container style={{margin:"10%", width:"50%"}}>
+      <OptionSelector selected={selectedColor} setSelected={setSelectedColor} options={colors}/>
+      <OptionSelector selected={selectedMaterial} setSelected={setSelectedMaterial} options={materials}/>
+      {(modelRenderStatus === true) ? <InputSize modelRenderStatus={modelRenderStatus}/> : <h1>Load model to see something</h1>}
+    </Container>
     </>
   );
 }
