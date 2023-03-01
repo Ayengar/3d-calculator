@@ -26,6 +26,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     uppy.on('complete', (result) => {
         console.log('Upload complete! File uploaded: ', result.successful);
         setUploadStatus(true);
+        console.log('uploadStatus called')
     })
     
     uppy.on('upload-success', (file, response) => {
@@ -35,7 +36,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     
     
     return(
-        <Dashboard uppy={uppy} plugins={[]} />
+        <Dashboard uppy={uppy} plugins={[]} inline={true} width='100%' />
     )
 }
 

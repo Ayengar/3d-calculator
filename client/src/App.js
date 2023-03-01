@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/esm/Button";
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App-style.css";
@@ -10,6 +15,7 @@ import UploadFile from "./components/UploadFile";
 import ModelViewer from "./components/ModelViewer";
 import Container from "react-bootstrap/esm/Container";
 import InputSize from "./components/InputSize";
+
 
 const App = () => {
 
@@ -34,23 +40,61 @@ const App = () => {
     {value: "PETG", label: "PETG"},
   ]
 
+  function goBack(condition){
+    setUploadStatus(condition);
+    setModelRenderStatus(condition);
+  }
+
+  function requestPrint(){
+    alert('request sent!');
+  }
+
 
   return (
     <>
     <Navigation />
-    <Container>
-    <div className="row" style={{ width: "50vw", height: "71vh" }}>
-      {(!uploadStatus) ? <UploadFile setUploadStatus={setUploadStatus} setModelPath={setModelPath}/> : <ModelViewer modelPath={modelPath} color={selectedColor.value} setModelRenderStatus={setModelRenderStatus} />}
-      
-      {(uploadStatus) ? <Button onClick={() => setUploadStatus(false)}>← Back</Button> : <Button onClick={() => setUploadStatus(true)}>Forward →</Button>}
-      
-    </div>
-    </Container>
-    <Container style={{margin:"10%", width:"50%"}}>
-      <OptionSelector selected={selectedColor} setSelected={setSelectedColor} options={colors}/>
-      <OptionSelector selected={selectedMaterial} setSelected={setSelectedMaterial} options={materials}/>
-      {(modelRenderStatus === true) ? <InputSize modelRenderStatus={modelRenderStatus}/> : <h1>Load model to see something</h1>}
-    </Container>
+    <br/>
+    <Card style={{margin:"auto", width:"80%", background:"black"}}>
+      <Card.Body>
+        <Row>
+          <Col>
+              {(!uploadStatus) ? 
+              <UploadFile setUploadStatus={setUploadStatus} setModelPath={setModelPath}/> 
+              : 
+              <ModelViewer modelPath={modelPath} color={selectedColor.value} setModelRenderStatus={setModelRenderStatus} />
+              }
+          </Col>
+          <Col lg={true}>
+            <Card className="options-Card">
+              <Card.Body>
+              {(modelRenderStatus === true) ? 
+                <>
+                  <OptionSelector placeholder={"Select color"} selected={selectedColor} setSelected={setSelectedColor} options={colors}/>
+                  <OptionSelector placeholder={"Select material"} selected={selectedMaterial} setSelected={setSelectedMaterial} options={materials}/>
+                  <InputSize modelRenderStatus={modelRenderStatus}/> 
+                  <div>
+                  <Button onClick={() => goBack(false)} style={{float:"left"}}>← Back</Button>
+                  <Button onClick={() =>  requestPrint()} style={{float:"right"}}>Send request</Button>
+                  </div>
+                </>
+                : 
+                <>
+                  <Alert>
+                    To estimate the price of 3D-printing, load your model in .stl format, choose desired material and color.
+                    Send request to order.
+                  </Alert>
+                  <Alert variant="warning">
+                    Note that this calculator is based on theoretical values and gives only a rough approximation,
+                    real deal might be higher or lower based on your needs ☺️
+                  </Alert>
+                </>
+              }
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
     </>
   );
 }
