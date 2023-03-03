@@ -78,7 +78,7 @@ const App = () => {
                   <OptionSelector placeholder={"Select color"} selected={selectedColor} setSelected={setSelectedColor} options={colors}/>
                   <OptionSelector placeholder={"Select material"} selected={selectedMaterial} setSelected={setSelectedMaterial} options={materials}/>
                   <InputSize modelRenderStatus={modelRenderStatus} modelVolume={modelVolume} setModelVolume={setModelVolume} /> 
-                  <Alert>Estimated price: {setPrice(modelVolume)} €</Alert>
+                  <Alert variant="info">Estimated price: {setPrice(modelVolume)} €</Alert>
                   <div>
                     <Button onClick={() => goBack(false)} style={{float:"left"}} >← Back</Button>
                   </div>

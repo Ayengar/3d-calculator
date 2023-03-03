@@ -5,7 +5,6 @@ import { getVolume, getSize, rotateObject } from "./CalculateVolume";
 
 let volume;
 let size;
-let modelRenderStatus;
 
 const StlModel = ({ modelPath, scale, position = [0, 0, 0], color, setModelRenderStatus }) => {
   const ref = useRef();
@@ -32,4 +31,4 @@ const StlModel = ({ modelPath, scale, position = [0, 0, 0], color, setModelRende
 };
 
 export default StlModel;
-export {volume, size, modelRenderStatus};
+export { volume, size };

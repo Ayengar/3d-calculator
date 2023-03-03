@@ -16,7 +16,7 @@ const uppy = new Uppy({
     })    
         .use(XHRUpload, {
             id:'XHRUpload',
-            endpoint:'http://localhost:9000/uploads',
+            endpoint:'https://threed-calculator.onrender.com/uploads',
             fieldName: 'model',
             formData: true,
         })
@@ -31,7 +31,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     
     uppy.on('upload-success', (file, response) => {
         const httpBody = response.body;  
-        setModelPath('http://localhost:9000/' + httpBody.filename);
+        setModelPath('https://threed-calculator.onrender.com' + httpBody.filename);
     })
     
     
