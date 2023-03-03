@@ -19,7 +19,7 @@ import InputSize from "./components/InputSize";
 const App = () => {
 
   const [uploadStatus, setUploadStatus] = useState(false);
-  const [modelPath, setModelPath] = useState('http://localhost:9000/cube.stl');
+  const [modelPath, setModelPath] = useState('https://threed-calculator.onrender.com/cube.stl');
   
   const [modelRenderStatus, setModelRenderStatus] = useState(false);
   const [modelVolume, setModelVolume] = useState('');
