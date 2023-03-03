@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/uploads', uploads);
 
-app.use(express.static('uploads'));
+app.use(express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 
