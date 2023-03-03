@@ -13,7 +13,6 @@ import Navigation from "./components/Navigation";
 import OptionSelector from "./components/OptionSelector";
 import UploadFile from "./components/UploadFile";
 import ModelViewer from "./components/ModelViewer";
-import Container from "react-bootstrap/esm/Container";
 import InputSize from "./components/InputSize";
 
 
@@ -23,10 +22,12 @@ const App = () => {
   const [modelPath, setModelPath] = useState('http://localhost:9000/cube.stl');
   
   const [modelRenderStatus, setModelRenderStatus] = useState(false);
+  const [modelVolume, setModelVolume] = useState('');
 
   const [selectedColor, setSelectedColor] = useState('gray');
-  const [selectedMaterial, setSelectedMaterial] = useState(null);
+  const [selectedMaterial, setSelectedMaterial] = useState('');
 
+  
   const colors = [
     { value: "red", label: "Red" },
     { value: "green", label: "Green" },
@@ -40,41 +41,46 @@ const App = () => {
     {value: "PETG", label: "PETG"},
   ]
 
+  function setPrice(volume){
+    let price = 0.076*volume;
+    let roundedPrice = Math.round((price + Number.EPSILON) * 100) / 100;
+    return roundedPrice;
+  }
+
   function goBack(condition){
     setUploadStatus(condition);
     setModelRenderStatus(condition);
+    setSelectedColor('gray');
+    setSelectedMaterial('');
   }
-
-  function requestPrint(){
-    alert('request sent!');
-  }
-
 
   return (
     <>
     <Navigation />
     <br/>
-    <Card style={{margin:"auto", width:"80%", background:"black"}}>
+    <Card className="Calculator-Card">
       <Card.Body>
         <Row>
-          <Col>
+          <Col lg={true}>
+            <div className="Canvas-Container">
               {(!uploadStatus) ? 
               <UploadFile setUploadStatus={setUploadStatus} setModelPath={setModelPath}/> 
               : 
               <ModelViewer modelPath={modelPath} color={selectedColor.value} setModelRenderStatus={setModelRenderStatus} />
               }
+            </div>
           </Col>
           <Col lg={true}>
-            <Card className="options-Card">
+            <Card className="Options-Card">
               <Card.Body>
               {(modelRenderStatus === true) ? 
                 <>
                   <OptionSelector placeholder={"Select color"} selected={selectedColor} setSelected={setSelectedColor} options={colors}/>
                   <OptionSelector placeholder={"Select material"} selected={selectedMaterial} setSelected={setSelectedMaterial} options={materials}/>
-                  <InputSize modelRenderStatus={modelRenderStatus}/> 
+                  <InputSize modelRenderStatus={modelRenderStatus} modelVolume={modelVolume} setModelVolume={setModelVolume} /> 
+                  <Alert>Estimated price: {setPrice(modelVolume)} €</Alert>
                   <div>
-                  <Button onClick={() => goBack(false)} style={{float:"left"}}>← Back</Button>
-                  <Button onClick={() =>  requestPrint()} style={{float:"right"}}>Send request</Button>
+                    <Button onClick={() => goBack(false)} style={{float:"left"}} >← Back</Button>
                   </div>
                 </>
                 : 

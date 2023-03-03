@@ -1,15 +1,22 @@
 import Select from 'react-select';
 
-const OptionSelector = ({selected, setSelected, options, placeholder}) => {
+const OptionSelector = ({ setSelected, options, placeholder }) => {
   
   function handleChange(selectedOption) {
     setSelected(selectedOption);
     console.log(selectedOption);
   };
   
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      background: "#cfe2ff",
+    })
+  };
+
   return (
     <div className="mt-3 m-auto">
-      <Select placeholder={placeholder} options={options} onChange={handleChange} autoFocus={true} />
+      <Select className="Select-Box" placeholder={placeholder} options={options} onChange={handleChange} styles={customStyles}/>
     </div>
   );
 }

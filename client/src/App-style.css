@@ -1,18 +1,31 @@
 body{
-    background-color: gray;
+    background-color: gray
 }
 
-.dimensionsContainer{
+.Dimensions-Container{
     display: flex;
     justify-content: space-evenly;
+}
+
+.Calculator-Card{
+    margin: auto;
+    width: 80%;
+    background: #28303b;
 }
 
 .Canvas-Container{
      width: 100%;
      height: 548px;
+     min-width: 450px;
 }
 
-.options-Card{
-    width: auto;
+.Options-Card{
+    width: 100%;
     height: 548px;
+    min-width: 450px;
 }
+
+.Select-Box{ 
+    color: #06449b;
+}
+

@@ -6,17 +6,18 @@ import StlModel from "./StlModel";
 const ModelViewer = ({ modelPath, scale, position = [0, 0, 0], color, setModelRenderStatus }) => {
 
   return (
-    <div className="Canvas-Container" >
-      <Canvas style={{ background: "white" }} >
-        <ambientLight intensity={0.3} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Suspense fallback={null}>
-          <StlModel modelPath={modelPath} scale={scale} position={position} color={color} setModelRenderStatus={setModelRenderStatus} />
-          <OrbitControls />
-        </Suspense>
+   
+      <Canvas camera={{ position: [0, 0.5, 8], fov: 50 }} style={{background:'white'}}>
+        <Stage
+          intensity={0.5}
+          preset="rembrandt"
+          adjustCamera={2}>
+          <StlModel modelPath={modelPath} position={position} color={color} setModelRenderStatus={setModelRenderStatus} />
+        </Stage>
+        <OrbitControls makeDefault />
+        <axesHelper args={[50]} />
       </Canvas>
-    </div>
+   
   );
 };
 

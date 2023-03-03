@@ -6,9 +6,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/esm/Button';
 
-const InputSize = ({ modelRenderStatus }) =>{
-
-    console.log("you touched inputSize");
+const InputSize = ({ modelRenderStatus, modelVolume, setModelVolume }) =>{
 
     let mmSizeX = size.x*1000;
     let mmSizeY = size.y*1000;
@@ -23,7 +21,6 @@ const InputSize = ({ modelRenderStatus }) =>{
     const [sizeX, setSizeX] = useState('');
     const [sizeY, setSizeY] = useState('');
     const [sizeZ, setSizeZ] = useState('');
-    const [modelVolume, setModelVolume] = useState('');
 
     useEffect(() =>{
         if (modelRenderStatus === true){
@@ -75,7 +72,7 @@ const InputSize = ({ modelRenderStatus }) =>{
                 <Button onClick={() => reset()} style={{float:"right", fontSize:"16px"}}>⟳</Button>
             </Alert.Heading>
             <hr />
-            <div className='dimensionsContainer'>
+            <div className="Dimensions-Container">
                 <InputGroup className="mb-3">
                     <InputGroup.Text>X</InputGroup.Text>
                     <Form.Control type="number" value={sizeX} onChange={handleChangeX} />
@@ -94,7 +91,6 @@ const InputSize = ({ modelRenderStatus }) =>{
             </div>
         </Alert>
         <Alert>Model volume: {roundit(modelVolume)} cm³</Alert>
-        <Alert>Estimated price: {roundit(0.076*modelVolume)} €</Alert>
         </>
     )
 }

@@ -33,14 +33,20 @@ export function getVolume(geometry) {
     return sum;
   }
 
-  function signedVolumeOfTriangle(p1, p2, p3) {
-    return p1.dot(p2.cross(p3)) / 6.0;
-  }
+function signedVolumeOfTriangle(p1, p2, p3) {
+  return p1.dot(p2.cross(p3)) / 6.0;
+}
 
 
- export function getSize(geometry) {
-    let size = new THREE.Vector3();
-    geometry.computeBoundingBox();
-    geometry.boundingBox.getSize( size );
-    return size;
+export function getSize(geometry) {
+  let size = new THREE.Vector3();
+  geometry.computeBoundingBox();
+  geometry.boundingBox.getSize( size );
+  return size;
+}
+
+export function rotateObject(object, degreeX=0, degreeY=0, degreeZ=0) {
+  object.rotateX(Math.PI / 180*degreeX);
+  object.rotateY(Math.PI / 180*degreeY);
+  object.rotateZ(Math.PI / 180*degreeZ);
 }
