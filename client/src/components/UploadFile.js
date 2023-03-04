@@ -31,7 +31,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
         const httpBody = response.body; 
         console.log(response.body);
         console.log('upload-success');
-        setModelPath('https://threed-calculator.onrender.com/uploads/' +  + httpBody.filename);
+        setModelPath('https://threed-calculator.onrender.com/uploads/' + httpBody.filename);
         setUploadStatus(true);
     })
     
