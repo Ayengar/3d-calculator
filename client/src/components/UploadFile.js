@@ -28,6 +28,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     })
     
     uppy.on('upload-success', (file, response) => { 
+        console.log(response.body);
         console.log(response.uploadURL);
         console.log('upload-success');
         setModelPath(response.uploadURL);
