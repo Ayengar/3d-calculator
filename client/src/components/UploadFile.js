@@ -19,6 +19,7 @@ const uppy = new Uppy({
             endpoint:'https://threed-calculator.onrender.com/uploads',
             fieldName: 'model',
             formData: true,
+            responseUrlFieldName: 'url',
         })
 
 const UploadFile = ({setUploadStatus, setModelPath}) => {
@@ -31,7 +32,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
         const httpBody = response.body; 
         console.log(response.body);
         console.log('upload-success');
-        setModelPath('https://threed-calculator.onrender.com/uploads/' + httpBody.filename);
+        setModelPath('https://threed-calculator.onrender.com/' + httpBody.filename);
         setUploadStatus(true);
     })
     
