@@ -31,7 +31,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     
     uppy.on('upload-success', (file, response) => {
         const httpBody = response.body;  
-        setModelPath('/opt/render/project/src/server/uploads/' + httpBody.filename);
+        setModelPath(response.uploadURL);
     })
     
     
