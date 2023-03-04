@@ -28,10 +28,10 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     })
     
     uppy.on('upload-success', (file, response) => { 
+        const httpBody = response.body; 
         console.log(response.body);
-        console.log(response.uploadURL);
         console.log('upload-success');
-        setModelPath(response.uploadURL);
+        setModelPath('https://threed-calculator.onrender.com/uploads' +  + httpBody.filename);
         setUploadStatus(true);
     })
     
