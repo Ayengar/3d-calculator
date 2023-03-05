@@ -48,10 +48,19 @@ const InputSize = ({ modelRenderStatus, modelVolume, setModelVolume }) =>{
       }, []);
 
     function reset(){
-        setSizeX(roundit(mmSizeX));
-        setSizeY(roundit(mmSizeY));
-        setSizeZ(roundit(mmSizeZ));
-        setModelVolume(roundit(cmVolume));
+        if (mmSizeX > 500 || mmSizeY > 500 || mmSizeZ > 500) {
+            let coeff = (getOrderOfMagnitude(mmSizeX)/10);
+            setSizeX(roundit(mmSizeX / coeff));
+            setSizeY(roundit(mmSizeY / coeff));
+            setSizeZ(roundit(mmSizeZ / coeff)); 
+            setModelVolume(roundit(cmVolume/(coeff)**3));
+         
+         } else{ 
+            setSizeX(roundit(mmSizeX));
+            setSizeY(roundit(mmSizeY));
+            setSizeZ(roundit(mmSizeZ));
+            setModelVolume(roundit(cmVolume));
+        }
     }  
 
     function handleChangeX(e){
