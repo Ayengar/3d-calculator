@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -19,26 +19,29 @@ import InputSize from "./components/InputSize";
 const App = () => {
 
   const [uploadStatus, setUploadStatus] = useState(false);
-  const [modelPath, setModelPath] = useState('https://threed-calculator.onrender.com/cube.stl');
-  
   const [modelRenderStatus, setModelRenderStatus] = useState(false);
+  const [modelPath, setModelPath] = useState(''); 
   const [modelVolume, setModelVolume] = useState('');
-
   const [selectedColor, setSelectedColor] = useState('gray');
   const [selectedMaterial, setSelectedMaterial] = useState('');
 
   
   const colors = [
     { value: "red", label: "Red" },
-    { value: "green", label: "Green" },
+    { value: "orange", label:"Orange"},
+    { value: "yellow", label: "Yellow" },
+    { value: "green", label:"Green"},
     { value: "blue", label: "Blue" },
-    { value: "orange", label: "Orange" },
+    { value: "indigo", label:"Indigo"},
+    { value: "violet", label:"Violet"},
   ];
 
   const materials = [
     {value: "PLA", label: "PLA"},
     {value: "ABS", label: "ABS"},
     {value: "PETG", label: "PETG"},
+    {value: "HIPS", label:"HIPS"},
+    {value: "FLEX", label:"FLEX"},    
   ]
 
   function setPrice(volume){

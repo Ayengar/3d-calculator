@@ -18,16 +18,32 @@ const InputSize = ({ modelRenderStatus, modelVolume, setModelVolume }) =>{
         return rounded;
     }
 
+    function getOrderOfMagnitude(n) {
+        var order = Math.floor(Math.log(n) / Math.LN10
+                           + 0.000000001); // because float math sucks like that
+        return Math.pow(10,order);
+    }
+
     const [sizeX, setSizeX] = useState('');
     const [sizeY, setSizeY] = useState('');
     const [sizeZ, setSizeZ] = useState('');
 
     useEffect(() =>{
         if (modelRenderStatus === true){
-          setSizeX(roundit(mmSizeX));
-          setSizeY(roundit(mmSizeY));
-          setSizeZ(roundit(mmSizeZ));
-          setModelVolume(roundit(cmVolume));
+            if (mmSizeX > 500 || mmSizeY > 500 || mmSizeZ > 500) {
+                    let coeff = (getOrderOfMagnitude(mmSizeX)/10);
+                    setSizeX(roundit(mmSizeX / coeff));
+                    setSizeY(roundit(mmSizeY / coeff));
+                    setSizeZ(roundit(mmSizeZ / coeff)); 
+                    setModelVolume(roundit(cmVolume/(coeff)**3));
+                 
+            } else{ 
+                    setSizeX(roundit(mmSizeX));
+                    setSizeY(roundit(mmSizeY));
+                    setSizeZ(roundit(mmSizeZ));
+                    setModelVolume(roundit(cmVolume));
+                }
+         
         }
       }, []);
 
@@ -73,19 +89,19 @@ const InputSize = ({ modelRenderStatus, modelVolume, setModelVolume }) =>{
             </Alert.Heading>
             <hr />
             <div className="Dimensions-Container">
-                <InputGroup className="mb-3">
-                    <InputGroup.Text>X</InputGroup.Text>
-                    <Form.Control type="number" value={sizeX} onChange={handleChangeX} />
+                <InputGroup className="mb-3" >
+                    <InputGroup.Text style={{background: "#d13030", opacity:"80%"}}>X</InputGroup.Text>
+                    <Form.Control type="number" value={sizeX} onChange={handleChangeX} style={{minWidth:"50px", fontSize:"small"}} />
                     <InputGroup.Text>mm</InputGroup.Text>
                 </InputGroup>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text>Y</InputGroup.Text>
-                    <Form.Control type="number" value={sizeY} onChange={handleChangeY} />
+                    <InputGroup.Text  style={{background: "#1c60d3", opacity:"80%"}}>Y</InputGroup.Text>
+                    <Form.Control type="number" value={sizeY} onChange={handleChangeY} style={{minWidth:"50px", fontSize:"small"}} />
                     <InputGroup.Text>mm</InputGroup.Text>
                 </InputGroup>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text>Z</InputGroup.Text>
-                    <Form.Control type="number" value={sizeZ} onChange={handleChangeZ} />
+                    <InputGroup.Text style={{background: "#4ba669", opacity:"80%"}}>Z</InputGroup.Text>
+                    <Form.Control type="number" value={sizeZ} onChange={handleChangeZ} style={{minWidth:"50px", fontSize:"small"}} />
                     <InputGroup.Text>mm</InputGroup.Text>
                 </InputGroup>
             </div>
