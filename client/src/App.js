@@ -16,7 +16,7 @@ const App = () => {
 
   const router = createBrowserRouter([
     {
-      path: "https://threed-calculator.onrender.com/",
+      path: "/",
       element: (
           <>
           <br />
@@ -26,7 +26,7 @@ const App = () => {
       ),
     },
     {
-      path: "https://threed-calculator.onrender.com/about",
+      path: "about",
       element: (
         <>
         <br />
@@ -36,7 +36,7 @@ const App = () => {
       ),
     },
     {
-      path: "https://threed-calculator.onrender.com/contacts",
+      path: "contacts",
       element: (
         <>
         <br />
