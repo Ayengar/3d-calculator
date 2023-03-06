@@ -2,6 +2,8 @@ import Alert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import Downloader from './Downloader';
+
 const About = () =>{
     return(
         <>
@@ -17,6 +19,7 @@ const About = () =>{
                 </Row>
               
             </Alert>
+            <Downloader />
         </>
     )
 }

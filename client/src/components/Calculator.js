@@ -27,6 +27,10 @@ const Calculator = () =>{
     { value: "blue", label: "Blue" },
     { value: "indigo", label:"Indigo"},
     { value: "violet", label:"Violet"},
+    { value: "gray", label:"Gray"},
+    { value: "brown", label:"Brown"},
+    { value: "Black", label:"Black"},
+    { value: "White", label:"White"},
   ];
 
   const materials = [

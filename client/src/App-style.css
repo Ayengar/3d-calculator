@@ -75,3 +75,8 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: center;
 }
+
+.Download-Stl{
+    width: 35%;
+    margin: auto;
+}
