@@ -36,4 +36,35 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
+.Contacts-Container{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
 
+.Contact-Icon{
+    margin: auto;
+    text-decoration: none;
+    color: black;
+   
+}
+
+.Contacts-Card{
+    margin: auto;
+    width: 50%;
+    font-size: 3vw;
+    background-color:#28303bd5;
+}
+
+.Adress-Container{
+  text-align: center;
+  color: black;
+}
+
+.About-Container{
+    margin: auto ;
+    width: 50% ;
+    font-size: 20px;
+}
