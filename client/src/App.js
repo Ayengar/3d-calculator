@@ -82,12 +82,14 @@ const App = () => {
                   <OptionSelector placeholder={"Select material"} selected={selectedMaterial} setSelected={setSelectedMaterial} options={materials}/>
                   <InputSize modelRenderStatus={modelRenderStatus} modelVolume={modelVolume} setModelVolume={setModelVolume} /> 
                   <Alert variant="info">Estimated price: {setPrice(modelVolume)} €</Alert>
-                  <div>
+                  <Row>
+                    <Col>
                     <Button onClick={() => goBack(false)} style={{float:"left"}} >← Back</Button>
-                    <div style={{float:"right"}}>
-                    {(modelVolume > 0 && modelVolume < 125000) ? <Alert variant="info">{setPrice(modelVolume)}</Alert> : <Alert variant="danger">Can't be printed. Mesh error or too big!</Alert>}
-                    </div>
-                  </div>
+                    </Col>
+                    <Col>
+                      {((modelVolume > 0) && (modelVolume < 125000)) ? <Alert variant="info">{setPrice(modelVolume)}</Alert> : <Alert variant="danger">Can't be printed. Mesh error or too big!</Alert>}
+                    </Col>
+                  </Row>
                 </>
                 : 
                 <>
