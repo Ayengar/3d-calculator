@@ -26,7 +26,7 @@ const App = () => {
       ),
     },
     {
-      path: "about",
+      path: "/about",
       element: (
         <>
         <br />
@@ -36,7 +36,7 @@ const App = () => {
       ),
     },
     {
-      path: "contacts",
+      path: "/contacts",
       element: (
         <>
         <br />
