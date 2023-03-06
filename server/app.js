@@ -48,7 +48,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/build', '../client/build/index.html'));
 });
 
 module.exports = app;
