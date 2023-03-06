@@ -38,7 +38,7 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
     
     
     return(
-        <Dashboard uppy={uppy} plugins={[]} inline={true} width='100%' />
+        <Dashboard uppy={uppy} plugins={[]} inline={true} width='100%' height='60vh' />
     )
 }
 
