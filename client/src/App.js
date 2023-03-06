@@ -84,6 +84,9 @@ const App = () => {
                   <Alert variant="info">Estimated price: {setPrice(modelVolume)} €</Alert>
                   <div>
                     <Button onClick={() => goBack(false)} style={{float:"left"}} >← Back</Button>
+                    <div style={{float:"right"}}>
+                    {(modelVolume > 0 && modelVolume < 125000) ? <Alert variant="info">{setPrice(modelVolume)}</Alert> : <Alert variant="danger">Can't be printed. Mesh error or too big!</Alert>}
+                    </div>
                   </div>
                 </>
                 : 
