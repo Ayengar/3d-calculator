@@ -37,7 +37,7 @@ input::-webkit-inner-spin-button {
 }
 
 .Contacts-Container{
-    width: 50%;
+    width: 30%;
     margin: auto;
     display: flex;
     justify-content: space-evenly;

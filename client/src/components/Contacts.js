@@ -17,9 +17,7 @@ const Contacts = () =>{
                 </Row>
                 <Row>
                 <div className="Adress-Container"> 
-                    <RiMailSendFill />
-                    <br/>
-                     ayengar@proton.me 
+                    <RiMailSendFill /> ayengar@proton.me 
                 </div>
                 </Row>
             </Card.Body>

@@ -28,7 +28,7 @@ const Calculator = () =>{
     { value: "indigo", label:"Indigo"},
     { value: "violet", label:"Violet"},
     { value: "gray", label:"Gray"},
-    { value: "brown", label:"Brown"},
+    { value: "#564742", label:"Brown"},
     { value: "Black", label:"Black"},
     { value: "White", label:"White"},
   ];

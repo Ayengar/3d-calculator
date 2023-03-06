@@ -1,8 +1,7 @@
 import Alert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
-import Downloader from './Downloader';
+import { SiThingiverse } from 'react-icons/si'
 
 const About = () =>{
     return(
@@ -17,9 +16,12 @@ const About = () =>{
                      <img src="https://threed-calculator.onrender.com/images/200w.webp" style={{width:"50%"}}></img>
                      </Col>
                 </Row>
-              
+                <Row>
+                <a href='https://www.thingiverse.com/thing:5868206/files'>
+                 You can download free models here! <SiThingiverse style={{fontSize: "larger"}}/>
+                </a>
+                </Row>
             </Alert>
-            <Downloader />
         </>
     )
 }
