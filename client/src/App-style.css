@@ -98,6 +98,9 @@ input::-webkit-inner-spin-button {
 }
 
 @media(max-width: 620px){
+    .Calculator-Card{
+        width: 100%;
+    }
 
     .Canvas-Container{
         height: auto;
