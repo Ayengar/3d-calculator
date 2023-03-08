@@ -37,9 +37,11 @@ input::-webkit-inner-spin-button {
 }
 
 .Contacts-Card{
-    margin: auto;
-    width: 30%;
+    margin-left: 10%;
+    width: 30vw;
     background-color:#28303bd5;
+    float: left;
+    min-width: 475px;
 }
 
 .Icon-Container{
@@ -48,7 +50,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-evenly;
     margin-top: 3%;
-    font-size: 2.5vw;
+    font-size: 40px;
     float: left;
 }
 
@@ -70,7 +72,7 @@ input::-webkit-inner-spin-button {
 .Adress-Container > *{
     text-decoration: none;
     color: black;
-    font-size: 2.5vw;
+    font-size: 40px;
 }
 
 .About-Container{
@@ -110,18 +112,17 @@ input::-webkit-inner-spin-button {
    .About-Container{
     width: 84%;
    }
-}
 
-@media(max-width: 960px){
-    .Contacts-Card{
-        width: 75%;
-       }
-    
-       .Adress-Container > *{
-            font-size: 6vw;
-       }
-    
-       .Icon-Container > *{
-        font-size: 9vw;
-       }
+   .Contacts-Card{
+    width: 75%;
+    min-width: 0px;
+   }
+
+   .Adress-Container > *{
+        font-size: 6vw;
+   }
+
+   .Icon-Container > *{
+    font-size: 9vw;
+   }
 }
