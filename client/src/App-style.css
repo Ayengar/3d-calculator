@@ -89,3 +89,17 @@ input::-webkit-inner-spin-button {
     width: 35%;
     margin: auto;
 }
+
+@media(max-width: 620px){
+
+    .Canvas-Container{
+        height: auto;
+        min-width: 0px;
+   }
+   
+   .Options-Card{
+       height: auto;
+       min-width: 0px;
+   }
+   
+}
