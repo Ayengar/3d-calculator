@@ -38,7 +38,7 @@ input::-webkit-inner-spin-button {
 
 .Contacts-Card{
     margin: auto;
-    width: 30vw;
+    width: 30%;
     background-color:#28303bd5;
 }
 
@@ -60,6 +60,7 @@ input::-webkit-inner-spin-button {
 .Adress-Container{
   text-align:left;
   color: black;
+  white-space: nowrap;
 }
 
 .Adress-Container > *{
@@ -104,5 +105,9 @@ input::-webkit-inner-spin-button {
    
    .About-Container{
     width: 84%;
+   }
+
+   .Contacts-Card{
+    width: 50%;
    }
 }
