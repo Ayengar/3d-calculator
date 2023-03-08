@@ -14,13 +14,13 @@ const About = () =>{
                 <hr />
                 <Row>
                     <Col className='Gif-Holder'>
-                     <img src="https://threed-calculator.onrender.com/images/200w.webp" style={{width:"50%"}}></img>
-                     </Col>
+                     <img src="https://threed-calculator.onrender.com/images/200w.webp"></img>
+                    </Col>
                 </Row>
                 <hr />
                 <Row>
                 <a href='https://www.thingiverse.com/thing:5868206/files'>
-                 You can download free models here! <SiThingiverse style={{fontSize: "larger"}}/>
+                    You can download free models here! <SiThingiverse style={{fontSize: "larger"}}/>
                 </a>
                 </Row>
             </Alert>

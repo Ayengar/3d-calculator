@@ -36,31 +36,36 @@ input::-webkit-inner-spin-button {
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-.Contacts-Container{
-    width: 30%;
+.Contacts-Card{
+    margin: auto;
+    width: 30vw;
+    background-color:#28303bd5;
+}
+
+.Icon-Container{
+    width: 7.5vw;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
     margin-top: 3%;
+    font-size: 2.5vw;
+    float: left;
 }
 
-.Contact-Icon{
-    margin: auto;
+.Icon-Container > *{
     text-decoration: none;
-    color: black;
-   
-}
-
-.Contacts-Card{
-    margin: auto;
-    width: 50%;
-    font-size: 3vw;
-    background-color:#28303bd5;
+    color: black;  
 }
 
 .Adress-Container{
-  text-align: center;
+  text-align:left;
   color: black;
+}
+
+.Adress-Container > *{
+    text-decoration: none;
+    color: black;
+    font-size: 2.5vw;
 }
 
 .About-Container{
@@ -74,6 +79,10 @@ input::-webkit-inner-spin-button {
     margin:auto;
     display: flex;
     justify-content: center;
+}
+
+.Gif-Holder > img{
+    width: 80%;
 }
 
 .Download-Stl{
