@@ -41,7 +41,7 @@ input::-webkit-inner-spin-button {
     width: 30vw;
     background-color:#28303bd5;
     float: left;
-    min-width: 475px;
+    min-width: 380px;
 }
 
 .Icon-Container{
@@ -50,7 +50,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-evenly;
     margin-top: 3%;
-    font-size: 40px;
+    font-size: 32px;
     float: left;
 }
 
@@ -72,7 +72,7 @@ input::-webkit-inner-spin-button {
 .Adress-Container > *{
     text-decoration: none;
     color: black;
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .About-Container{
