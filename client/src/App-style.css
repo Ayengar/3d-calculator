@@ -43,7 +43,7 @@ input::-webkit-inner-spin-button {
 }
 
 .Icon-Container{
-    width: 7.5vw;
+    width: 25%;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
@@ -55,6 +55,10 @@ input::-webkit-inner-spin-button {
 .Icon-Container > *{
     text-decoration: none;
     color: black;  
+}
+
+.Contact-Icon{
+    margin-right: 8%;
 }
 
 .Adress-Container{
@@ -106,8 +110,18 @@ input::-webkit-inner-spin-button {
    .About-Container{
     width: 84%;
    }
+}
 
-   .Contacts-Card{
-    width: 50%;
-   }
+@media(max-width: 960px){
+    .Contacts-Card{
+        width: 75%;
+       }
+    
+       .Adress-Container > *{
+            font-size: 6vw;
+       }
+    
+       .Icon-Container > *{
+        font-size: 9vw;
+       }
 }
