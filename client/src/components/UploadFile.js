@@ -6,6 +6,8 @@ import XHRUpload from '@uppy/xhr-upload'
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
 
+const href = window.location.href;
+
 const uppy = new Uppy({
         id:'UploadFile',
         restrictions: {
@@ -16,7 +18,7 @@ const uppy = new Uppy({
     })    
         .use(XHRUpload, {
             id:'XHRUpload',
-            endpoint:'https://threed-calculator.onrender.com/uploads',
+            endpoint: (href + 'uploads'),
             fieldName: 'model',
             formData: true,
             responseUrlFieldName: 'url',
@@ -32,7 +34,8 @@ const UploadFile = ({setUploadStatus, setModelPath}) => {
         const httpBody = response.body; 
         console.log(response.body);
         console.log('upload-success');
-        setModelPath('https://threed-calculator.onrender.com/' + httpBody.filename);
+        console.log(href);
+        setModelPath(href + httpBody.filename);
         setUploadStatus(true);
     })
     

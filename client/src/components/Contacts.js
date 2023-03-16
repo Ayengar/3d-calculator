@@ -21,9 +21,9 @@ const Contacts = () =>{
                         </Col>
                     </Row>
                     <Row>
-                    <div className="Adress-Container"> 
-                        <RiMailSendFill /> <a href="mailto:ayengar@proton.me">  ayengar@proton.me </a>
-                    </div>
+                        <div className="Adress-Container"> 
+                            <RiMailSendFill /> <a href="mailto:ayengar@proton.me">  ayengar@proton.me </a>
+                        </div>
                     </Row>
                 </Container>
             </Card.Body>

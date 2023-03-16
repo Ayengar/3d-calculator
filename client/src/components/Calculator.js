@@ -16,7 +16,7 @@ const Calculator = () =>{
   const [modelPath, setModelPath] = useState(''); 
   const [modelVolume, setModelVolume] = useState('');
   const [selectedColor, setSelectedColor] = useState('gray');
-  const [selectedMaterial, setSelectedMaterial] = useState('');
+  const [selectedMaterial, setSelectedMaterial] = useState(1);
 
   
   const colors = [
@@ -29,20 +29,20 @@ const Calculator = () =>{
     { value: "violet", label:"Violet"},
     { value: "gray", label:"Gray"},
     { value: "#564742", label:"Brown"},
-    { value: "Black", label:"Black"},
-    { value: "White", label:"White"},
+    { value: "black", label:"Black"},
+    { value: "white", label:"White"},
   ];
 
   const materials = [
-    {value: "PLA", label: "PLA"},
-    {value: "ABS", label: "ABS"},
-    {value: "PETG", label: "PETG"},
-    {value: "HIPS", label:"HIPS"},
-    {value: "FLEX", label:"FLEX"},    
+    {value: 1, label: "PLA"},
+    {value: 1.2, label: "ABS"},
+    {value: 0.8, label: "PETG"},
+    {value: 1.1, label:"HIPS"},
+    {value: 1.5, label:"FLEX"},    
   ]
 
   function setPrice(volume){
-    let price = 0.076*volume;
+    let price = 0.076*volume*selectedMaterial.value;
     let roundedPrice = Math.round((price + Number.EPSILON) * 100) / 100;
     return roundedPrice;
   }

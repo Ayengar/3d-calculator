@@ -3,7 +3,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SiThingiverse } from 'react-icons/si'
 
+const origin = window.location.origin;
+
 const About = () =>{
+
     return(
         <>
             <Alert className="About-Container">
@@ -14,7 +17,7 @@ const About = () =>{
                 <hr />
                 <Row>
                     <Col className='Gif-Holder'>
-                     <img src="https://threed-calculator.onrender.com/images/200w.webp"></img>
+                     <img src = {`${origin}/images/200w.webp`}></img>
                     </Col>
                 </Row>
                 <hr />
