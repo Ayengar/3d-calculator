@@ -1,6 +1,8 @@
 This is 3d-calculator.
 App for calculating 3d-printing price and previewing 3d model within browser without need to install 3d-software.
 
+Working application: https://threed-calculator.onrender.com/
+
 Model viewing is implemented with three.js; File uploading - uppy.io; Price calculated based on model volume using common formula.
 Front is made with React, Back - with Express.js.
 
