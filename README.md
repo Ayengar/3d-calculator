@@ -1,6 +1,6 @@
 This is 3d-calculator.
-App for calculating 3d-printing price and previewing 3d model withing browser without need to install 3d software.
-Model uploading viewing is realised with three.js; File uploading - uppy.io; Price calculated based on model volume using common formula.
+App for calculating 3d-printing price and previewing 3d model within browser without need to install 3d-software.
+Model viewing is implemented with three.js; File uploading - uppy.io; Price calculated based on model volume using common formula.
 Front is made with React, Back - with Express.js.
 
 App was built intentionally without state manager, but as goals risen it will be changed using Redux.
