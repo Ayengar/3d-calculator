@@ -16,7 +16,7 @@ const Calculator = () =>{
   const [modelPath, setModelPath] = useState(''); 
   const [modelVolume, setModelVolume] = useState('');
   const [selectedColor, setSelectedColor] = useState('gray');
-  const [selectedMaterial, setSelectedMaterial] = useState(1);
+  const [selectedMaterial, setSelectedMaterial] = useState({ value: 1});
 
   
   const colors = [
