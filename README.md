@@ -6,5 +6,5 @@ Front is made with React, Back - with Express.js.
 App was built intentionally without state manager, but as goals risen it will be changed using Redux.
 
 Next goals are:
-- Create server-side slicing on VM using cura-enginge to deliver very accurate price.
+- Create server-side slicing on VM using cura-engine to deliver very accurate price.
 - Make a realistic render of a printed object as it would look like in real life.
